@@ -1,0 +1,80 @@
+/// POST 
+POST http://localhost:5000/api/places/
+Content-Type: application/json
+
+
+{
+    "title": "UK State Building",
+    "description": "One of the most famous sky scrapers in the world",
+    "imageUrl":
+      "https://images.unsplash.com/photo-1617688319108-cb3bdc88f587?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80",
+    "address": "20 W 34th St, New York, NY 10001, United States of America",
+    "location": {
+      "lat": 10.7484405,
+      "lng": 23.9878584
+    },
+    "creator": "631a7f744eaac6c0479e8b9f"
+}
+
+
+###
+GET  http://localhost:5000/api/places/user/631a7f744eaac6c0479e8b9f
+
+
+###
+PATCH http://localhost:5000/api/places/631a7fcc4d36cdf34cd22860
+Content-Type: application/json
+
+{
+    
+    "title": "Nepal State Building",
+    "description": "Working Nepal!"
+}
+
+###
+GET  http://localhost:5000/api/places/p1
+
+
+### 
+DELETE http://localhost:5000/api/places/631a7fc84d36cdf34cd2285b
+
+
+// User apis
+
+###
+GET http://localhost:5000/api/users/
+
+### 
+POST  http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+  "email": "mrnischalpuri@gmail.com",
+  "password": "nisal@123"
+}
+
+
+###
+POST  http://localhost:5000/api/users/signup
+Content-Type: application/json
+
+{
+    "fullName": "nischal puri",
+    "email": "mrnischal@gmail.com",
+    "image": "imageUrl.com",
+    "password": "nisal123"
+}
+
+
+
+  // db connection test
+###
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+  "name": "laptop",
+  "price": 40000
+}
+###
+GET http://localhost:5000/api/products
