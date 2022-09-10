@@ -100,6 +100,17 @@ const app = express(); // passing express function object to app to work on.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// MIDDLEWARE FOR CORS problem
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // * specify any kind of server can ineract with this server
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  ); // 4th parameter, Content-Type, and 6th Authorization in key are set by us; other are default by browser.
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+  next();
+});
+
 // using routes module
 app.use("/api/places", placesRoutes);
 app.use("/api/users", userRoutes);

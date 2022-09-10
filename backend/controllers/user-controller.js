@@ -16,7 +16,7 @@ const USERS = [
 
 // SIGN UP USERS
 const signup = async (req, res, next) => {
-  const { fullName, email, password, image } = req.body;
+  const { fullName, email, password } = req.body;
   console.log(req.body);
 
   const error = validationResult(req);
@@ -46,7 +46,8 @@ const signup = async (req, res, next) => {
     fullName,
     email,
     password,
-    image,
+    image:
+      "https://images.unsplash.com/photo-1567446537708-ac4aa75c9c28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
     places: [],
   });
   console.log(`created=---------${newUser}`);
