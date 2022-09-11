@@ -5,14 +5,14 @@ const { validationResult } = require("express-validator");
 const User = require("../models/user-model");
 const HttpError = require("../models/http-error");
 
-const USERS = [
-  {
-    fullName: "nischal puri",
-    address: "ktm",
-    email: "mrnischalpuri@gmail.com",
-    password: "nisal@123",
-  },
-];
+// const USERS = [
+//   {
+//     fullName: "nischal puri",
+//     address: "ktm",
+//     email: "mrnischalpuri@gmail.com",
+//     password: "nisal@123",
+//   },
+// ];
 
 // SIGN UP USERS
 const signup = async (req, res, next) => {
@@ -72,11 +72,13 @@ const signup = async (req, res, next) => {
       new HttpError(`Couldn't create new User, please try again`, 500)
     );
   }
-
+  console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+  console.log(result);
   // PLACES.push(newPlace);
-  return res
-    .status(201)
-    .json({ message: "User created Successfully!", data: result });
+  return res.status(201).json({
+    message: "User created Successfully!",
+    user: result.toObject({ getters: true }),
+  });
 };
 
 // GET ALL USERS
@@ -88,7 +90,7 @@ const getUsers = async (req, res, next) => {
     return next(new HttpError(`user fetched failed, please try again!!!`, 500));
   }
   users = users.map((user) => user.toObject({ getters: true }));
-  res.json(users);
+  res.json({ users });
 };
 
 // LOGIN USERS
@@ -106,7 +108,10 @@ const login = async (req, res, next) => {
   if (!identifiedUser || identifiedUser.password != password)
     return next(new HttpError(`Either Email or Password is wrong!!`, 404));
 
-  res.status(200).json({ message: "Login Successfull!!" });
+  res.status(200).json({
+    message: "Login Successfull!!",
+    user: result.toObject({ getters: true }),
+  });
 };
 
 exports.getUsers = getUsers;

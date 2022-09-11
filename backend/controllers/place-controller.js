@@ -95,9 +95,10 @@ const createPlace = async (req, res, next) => {
   const newPlace = new Place({
     title,
     description,
-    imageUrl,
+    imageUrl:
+      "https://images.unsplash.com/photo-1617688319108-cb3bdc88f587?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80",
     address,
-    location,
+    location: { lat: 12.122123, lng: 20.23232 },
     creator,
   });
 
@@ -227,7 +228,7 @@ const getPlacesByUserId = async (req, res, next) => {
 
   const response = {
     message: "working fine!!",
-    data: userWithPlaces.places.map((place) =>
+    places: userWithPlaces.places.map((place) =>
       place.toObject({ getters: true })
     ),
   };

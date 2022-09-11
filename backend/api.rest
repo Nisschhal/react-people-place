@@ -60,9 +60,8 @@ Content-Type: application/json
 
 {
     "fullName": "nischal puri",
-    "email": "mrnischal@gmail.com",
-    "image": "imageUrl.com",
-    "password": "nisal123"
+    "email": "mrnischalpuri@gmail.com",
+    "password": "123456"
 }
 
 
