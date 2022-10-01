@@ -110,7 +110,7 @@ const login = async (req, res, next) => {
 
   res.status(200).json({
     message: "Login Successfull!!",
-    user: result.toObject({ getters: true }),
+    user: identifiedUser.toObject({ getters: true }),
   });
 };
 

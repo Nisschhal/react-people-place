@@ -140,7 +140,7 @@ const createPlace = async (req, res, next) => {
 };
 
 // GET PLACE BY PLACE ID
-const getPlaceById = async (req, res) => {
+const getPlaceById = async (req, res, next) => {
   const { pid: placeId } = req.params;
 
   // const identifiedPlace = PLACES.find((place) => place.id === placeId);
